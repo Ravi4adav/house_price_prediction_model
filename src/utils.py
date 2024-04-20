@@ -14,4 +14,6 @@ def save_object(file_path, file_name, file_obj):
 def load_object(preprocessor_file_path):
     with open(preprocessor_file_path,'rb') as file:
         preprocessor=pickle.load(file)
-        return preprocessor
+    return preprocessor
+
+

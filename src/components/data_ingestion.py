@@ -32,7 +32,7 @@ class DataIngestion:
 
             logging.info("Train test split initiated")
 
-            train_set, test_set = train_test_split(df,test_size=0.15,random_state=42)
+            train_set, test_set = train_test_split(df,test_size=0.15,random_state=92)
 
             train_set.to_csv(self.ingestion_config.train_data_path,index=False,header=True)
             test_set.to_csv(self.ingestion_config.test_data_path,index=False)
@@ -49,8 +49,14 @@ class DataIngestion:
 #     dt_ingestion=DataIngestion()
 #     train_data, test_data=dt_ingestion.initiate_data_ingestion()
 
-#     train_data=pd.read_csv(train_data)
+#     # train_data=pd.read_csv(train_data)
 #     test_data=pd.read_csv(test_data)
 
-#     dt_trans=DataTransformation()
-#     train_data,test_data=dt_trans.get_transformed_data(test_data)
+#     dt_trans=DataTransformation('./artifacts/train.csv')
+#     train_data,test_data,y_train,y_test=dt_trans.get_transformed_data(test_data)
+
+
+# print(f"Training data: \n{train_data}")
+# print(f"Test data: \n{test_data}")
+# print(f"Training data target Feature: {y_train}")
+# print(f"Test data target Feature: {y_test}")
