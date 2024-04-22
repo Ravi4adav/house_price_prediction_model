@@ -24,11 +24,11 @@ class DataTransformation:
 #   Step-1:  
     def replace_multiple_val_to_single(self,data):
         try:
+
             self.data=data
             logging.info('Replacing multiple repeating values to a single class value')
             
             
-            self.data.drop(['PRT_ID'],axis=1,inplace=True)
             self.val_dict={'AREA':{'Karapakkam':['Karapakam'], 'Anna Nagar':['Ana Nagar', 'Ann Nagar'], 'Adyar':['Adyr'], 'Velachery':['Velchery'], 
                         'Chrompet':['Chrompt', 'Chrmpet', 'Chormpet'], 'KK Nagar':['KKNagar'],'T Nagar': ['TNagar']},
                         'SALE_COND':{'AbNormal':['Ab Normal'], 'Partial':['Partiall', 'PartiaLl'], 'AdjLand':['Adj Land']},
@@ -39,11 +39,13 @@ class DataTransformation:
                         }
             
 
+            self.data.drop(['PRT_ID'],axis=1,inplace=True)
             for feature in self.val_dict:
                 for classes in self.val_dict[feature]:
                     for val in self.val_dict[feature][classes]:
                         self.data[feature]=self.data[feature].replace(val,classes)
             
+
             logging.info('Multiple repeating values to a single class value is replaced')
 
             
@@ -56,6 +58,7 @@ class DataTransformation:
 #   Step-2
     def total_price_handling(self,data):
         try:
+
             self.tph_test_data=data
             logging.info("Initiating total price calculation")
             self.tph_test_data=self.replace_multiple_val_to_single(self.tph_test_data)
@@ -69,6 +72,7 @@ class DataTransformation:
 
 
             return self.tph_test_data, self.tph_y_test
+
         except Exception as e:
             raise CustomException(e,sys)
 
@@ -85,8 +89,10 @@ class DataTransformation:
 
             for feature in self.obj_features:
                 label_encoder.fit(self.train_data[feature])
-                self.enc_test_data[feature+'_enc']=label_encoder.transform(self.enc_test_data[feature])
                 self.train_data[feature+'_enc']=label_encoder.transform(self.train_data[feature])
+                # encoded_values_dict =dict(zip(label_encoder.inverse_transform(self.train_data[feature+'_enc'].unique()),self.train_data[feature+'_enc'].unique()))
+                # print(encoded_values_dict)
+                self.enc_test_data[feature+'_enc']=label_encoder.transform(self.enc_test_data[feature])
                 self.enc_test_data.drop(feature,axis=1,inplace=True)
                 self.train_data.drop(feature,axis=1,inplace=True)
 
@@ -167,6 +173,80 @@ class DataTransformation:
             logging.info("Data transformation is done")
             return self.train_data, self.test_data, self.y_train, self.y_test
 
+        except Exception as e:
+            raise CustomException(e,sys)
+
+
+
+class PredictDataTransformation:
+    def __init__(self):
+        data_transform=DataTransformation('./artifacts/train.csv')
+        self.train_data=data_transform.train_data
+
+
+    def temporal_feature_handling(self):
+        try:
+            self.train_data=self.train_data
+            logging.info("Initiating conversion of temporal features to numeric features")
+
+            self.train_data['DATE_BUILD']=pd.to_datetime(self.train_data['DATE_BUILD'],format='%d-%M-%Y')
+            self.train_data['DATE_SALE']=pd.to_datetime(self.train_data['DATE_SALE'],format='%d-%M-%Y')
+            self.train_data['HOUSE_AGE']=self.train_data['DATE_SALE'].dt.year-self.train_data['DATE_BUILD'].dt.year
+            self.train_data.drop(['DATE_BUILD', 'DATE_SALE'],axis=1,inplace=True)
+
+
+            logging.info("Temporal Features converted to Numeric feature")
+            return self.train_data
+        except Exception as e:
+            raise CustomException(e,sys)
+
+    def encode_value(self,data):
+        try:
+            self.enc_test_data=data
+            self.train_data=self.temporal_feature_handling()
+            self.train_data=self.train_data[self.enc_test_data.columns]
+            # print(f"Encode value method: \n{self.train_data.head()}")
+            self.obj_features=[features for features in self.enc_test_data.columns if self.enc_test_data[features].dtypes=='object']
+            le=LabelEncoder()
+
+            # self.HOUSE_AGE=self.enc_test_data['HOUSE_AGE']
+            # self.enc_test_data.drop('HOUSE_AGE',axis=1,inplace=True)
+            # print(f"object datatype: {self.obj_features}")
+            for features in self.obj_features:
+                le.fit(self.train_data[features])
+                self.train_data[features+'_enc']=le.transform(self.train_data[features])
+                self.enc_test_data[features+'_enc']=le.transform(self.enc_test_data[features])
+
+            self.enc_test_data.drop(self.obj_features,axis=1,inplace=True)
+            self.train_data.drop(self.obj_features,axis=1,inplace=True)
+
+            # self.enc_test_data['HOUSE_AGE']=self.HOUSE_AGE
+            return self.train_data, self.enc_test_data
+
+        except Exception as e:
+            raise CustomException(e,sys)
+
+    def scale(self, data):
+        try:
+            self.train_data, self.scale_test_data=self.encode_value(data)
+            scale=StandardScaler()
+            scale.fit(self.train_data)
+
+            self.scale_test_data=pd.DataFrame(scale.transform(self.scale_test_data),columns=self.scale_test_data.columns)
+
+            self.HOUSE_AGE=self.scale_test_data['HOUSE_AGE']
+            self.scale_test_data.drop('HOUSE_AGE',axis=1,inplace=True)
+            self.scale_test_data['HOUSE_AGE']=self.HOUSE_AGE
+
+            return self.scale_test_data
+        except Exception as e:
+            raise CustomException(e,sys)
+
+    def preprocess(self,data):
+        try:
+            self.data=self.scale(data)
+            # print(self.data)
+            return self.data
         except Exception as e:
             raise CustomException(e,sys)
 

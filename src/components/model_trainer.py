@@ -34,7 +34,7 @@ warnings.filterwarnings('ignore')
 # featureselection=SelectFeature(feature_num=8)
 # x_train, x_test=featureselection.feature_selection(train_data,y_train,test_data)
 
-
+# print(x_train.head())
 
 
 
@@ -94,4 +94,4 @@ def model_train(models: dict, params: dict):
     print(f"Validation Accuracy Score: {best_score}")
 
 
-model_train(models=model,params=params)
+# model_train(models=model,params=params)

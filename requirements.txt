@@ -4,6 +4,6 @@ matplotlib
 seaborn
 scikit-learn
 xgboost
-
+flask
 
 -e .

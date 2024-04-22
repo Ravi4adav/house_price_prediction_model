@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href="{{url_for('static', filename='./css/home.css')}}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <title>Home Page</title>
+</head>
+<script src="{{url_for('static', filename='./javascript/home.js')}}"></script>
+<body>
+
+  <nav>
+    <div class="nav-bar">
+      <h1>HOUSE PRICE PREDICTION MODEL</h1>
+      <a href="">Data Insights</a>
+      <a href="">Training Insights</a>
+      <a href="">Predictor</a>
+    </div>
+  </nav>
+
+  <div class="forms">
+    <form action="{{url_for('predict_datapoint') }}" method="post">
+        <label for="fname">Property Area: (In sqft.)</label><br>
+        <input type="number" id="area" name="area" \ min="0" class="select-1"><br><br>
+        <label for="lname">Number of Bedrooms:</label><br>
+        <select name="no_of_bedrooms" id="no_of_bedrooms" class="select-0">
+            <optgroup label="">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+            </optgroup>
+          </select><br><br>
+
+        <label for="lname">Number of Bathrooms:</label><br>
+        <select name="no_of_bathrooms" id="no_of_bathrooms" class="select-0">
+            <optgroup label="">
+              <option value="1">1</option>
+              <option value="2">2</option>
+            </optgroup>
+          </select><br><br>
+
+        <label for="lname">Total Rooms:</label><br>
+        <select name="total_rooms" id="total_rooms" class="select-0">
+            <optgroup label="No. of Bedrooms, Bathrooms and (Store room if)">
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+            </optgroup>
+          </select><br><br>
+
+        <label for="lname">Region:</label><br>
+        <select name="region" id="region" class="select-2">
+            <optgroup label="">
+              <option value="Chrompet">Chrompet</option>
+              <option value="Adyar">Adyar</option>
+              <option value="KK Nagar">KK Nagar</option>
+              <option value="T Nagar">T Nagar</option>
+              <option value="Karapakkam">Karapakkam</option>
+              <option value="Anna Nagar">Anna Nagar</option>
+              <option value="Velachery">Velachery</option>
+            </optgroup>
+          </select><br><br>
+
+        <label for="lname">Building Type:</label><br>
+        <select name="building_type" id="building_type" class="select-2">
+            <optgroup label="">
+              <option value="Commercial">Commercial</option>
+              <option value="House">House</option>
+              <option value="Others">Others</option>
+            </optgroup>
+          </select><br><br>
+
+        <label for="lname">Property Zone:</label><br>
+        <select name="property_zone" id="property_zone" class="select-3">
+            <optgroup label="">
+              <option value="RL">Residential Low Density</option>
+              <option value="RM">Residential Medium Density</option>
+              <option value="RH">Residential High Density</option>
+              <option value="A">Agriculture</option>
+              <option value="I">Industrial</option>
+              <option value="C">Commercial</option>
+            </optgroup>
+          </select><br><br>
+
+        <label for="lname">House age:</label><br>
+        <input type="number" name="house_age" id="house_age" \ min="0" class="select-1"><br><br>
+        <input type="submit" value="Submit" class="submit-button">
+      </form>
+
+      <div class="prediction-container" id="prediction-value">
+        <h2>
+          The prediction is: {{results}}
+       </h2>
+      </div>
+  </div>
+</body>
+</html>
+
