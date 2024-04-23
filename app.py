@@ -14,10 +14,19 @@ app=application
 def index():
     return render_template('index.html')
 
+@app.route('/data_insight')
+def data_info():
+    return render_template('datainfo.html')
+
+
+@app.route('/training_insight')
+def training_info():
+    return render_template('traininginfo.html')
+
 @app.route('/predictdata',methods=['GET','POST'])
 def predict_datapoint():
     if request.method=='GET':
-        return render_template('home.html')
+        return render_template('predict.html')
     else:
         area=request.form.get('area'),
         no_of_bedrooms=int(request.form.get("no_of_bedrooms")),
@@ -58,8 +67,9 @@ def predict_datapoint():
 
         predict_pipeline=PredictPipeline()
         results=predict_pipeline.predict(pred_df)
+        results=f"The prediction price is: {results[0]}"
 
-        return render_template('home.html',results=results[0])
+        return render_template('predict.html',results=results)
 
 
 if __name__=='__main__':

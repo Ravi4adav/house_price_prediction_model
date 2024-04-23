@@ -1,0 +1,167 @@
+nav{
+    background-color: #ce4a4a;
+    margin: -2% -1% 3% -1%;
+    padding: 1% 0% 0% 1%;
+
+    background-size: 100%;
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+
+}
+
+
+.nav-bar>h1{
+    display: inline-block;
+    color:#f4f4f4;
+}
+
+.nav-bar>a{
+    display: inline-block;
+    text-decoration: none;
+    color: #f4e3e3;
+    margin-left: 2%;
+
+}
+
+
+/* ===================================================================================================================== */
+
+.heading{
+    font-family: "Platypi", serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+      
+}
+
+p, li{
+    text-align: left;
+    font-family: "Platypi", serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+}
+
+button>a{
+    text-decoration: none;
+    font-family: "Platypi", serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+}
+
+button{
+    padding: 1% 2% 1% 2%;
+    border-radius: 20px;
+    border-color: white;
+}
+
+/* ===================================================================================================================== */
+
+.grid-container{
+    display: grid;
+    grid-template-columns: 15vw 60vw 15vw;
+    grid-gap: 10px;
+    justify-content: center;
+}
+
+.grid-item{
+    background: #ffffff;
+    /* padding: 3%; */
+    text-align: center;
+}
+
+
+/* ================================================================================================================== */
+
+.intro-heading{
+    font-family: "Platypi", serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+    
+    color: #f4e3e3;
+    position:relative;
+    top: -50%;
+    background: #9f9090a8;
+}
+
+.intro >img{
+    width: 100%;
+    opacity: 0.9;
+    height: 90%;
+}
+
+
+.content-heading{
+    text-align: left;
+    text-decoration: underline;
+    font-family: "Platypi", serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+
+}
+
+.content-heading-button{
+    text-align: center;
+    text-decoration: underline;
+    font-family: "Platypi", serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+}
+
+
+/* ================================================================================================================== */
+
+
+.footer {
+    background-color: #ce4a4a;
+    color: #fff;
+    padding: 50px 0; /* Add padding to the footer content */
+    margin-top: 5%;
+    margin: 5% -1% -1% -1%;
+
+    font-family: "Platypi", serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto; /* Center the footer content */
+    overflow: hidden; /* Clearfix */
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.footer-section {
+    padding: 20px;
+    flex: 1;
+}
+
+.footer-section h2 {
+    margin-bottom: 10px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #fff;
+}

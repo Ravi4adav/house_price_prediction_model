@@ -17,6 +17,10 @@ nav{
     /* text-align: center; */
 }
 
+/* .nav-bar{
+    position: fixed;
+} */
+
 .nav-bar>h1{
     display: inline-block;
     color:#f4f4f4;
@@ -50,7 +54,7 @@ form{
     margin-right: auto;
     width: 40%;
     border-radius: 10px;
-    padding: 3% 0% 3% 0%;
+    padding: 2% 0% 2% 0%;
 }
 
 form>input{
@@ -99,4 +103,55 @@ form > .select-3{
 
 .submit-button{
     padding: 1% 4% 1% 4%;
+}
+
+
+/* ====================================================================================================================== */
+
+.footer {
+    background-color: #ce4a4a;
+    color: #fff;
+    padding: 50px 0; /* Add padding to the footer content */
+    margin: 5% -1% -1% -1%;
+
+    font-family: "Platypi", serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto; /* Center the footer content */
+    overflow: hidden; /* Clearfix */
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.footer-section {
+    padding: 20px;
+    flex: 1;
+}
+
+.footer-section h2 {
+    margin-bottom: 10px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #fff;
 }

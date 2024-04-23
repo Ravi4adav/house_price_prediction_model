@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static',filename='./css/traininginfo.css')}}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Platypi:ital,wght@0,300..800;1,300..800&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+
+    <title>Training Insights</title>
+</head>
+<body>
+    <nav>
+        <div class="nav-bar">
+            <h1>HOUSE PRICE PREDICTION MODEL</h1>
+            <a href="/">Home</a>
+            <a href="/data_insight">Data Insights</a>
+            <a href="/training_insight">Training Insights</a>
+            <a href="/predictdata">Predictor</a>
+        </div>
+    </nav>
+
+    <div class="grid-container1">
+        <div class="grid-item1 header-heading">
+            <h1 >Machine Learning Model Performance</h1>
+            <p>Welcome to our Machine Learning Performance Showcase! Explore the dynamic world of data-driven 
+                insights as we delve into the remarkable performance of our cutting-edge machine learning models. 
+                From precision to recall, accuracy to efficiency, discover how our models revolutionize problem-solving 
+                with unparalleled results. Join us on a journey through data, where every insight brings us closer to 
+                unlocking the full potential of artificial intelligence.</p>
+        </div>
+        <div class="grid-item1 intro-image">
+            <img src="/static/images/model-performance-intro.jpg" alt="model-intro">
+        </div>
+    </div>
+
+    <h1 class="heading">Models Used For Training</h1>
+    <div class="grid-container2">
+        <div class="grid-item">
+            <img src="/static/images/linear-regression.png" alt="linear-regression">
+            <h3 class="heading">Linear Regression</h3>
+            <p>Imagine you have a bunch of dots on a graph, each representing a pair of numbers, 
+                like the price of a house and its size. Linear regression is like drawing a straight 
+                line through those dots, trying to capture the general trend. This line helps us predict one number 
+                (like the price) based on another (like the size). It's a simple but powerful tool used in everything 
+                from predicting sales to understanding how variables are related in science.</p>
+        </div>
+        <div class="grid-item">
+            <img src="/static/images/ridge-intro.png" alt="ridge-regression">
+            <h3 class="heading">Ridge Regression</h3>
+            <p>Let's think of ridge regression as a helpful twist on linear regression. You know how sometimes, 
+                when you're drawing a line through points on a graph, it might not perfectly fit all the dots? 
+                Ridge regression steps in to fix that. It adds a special ingredient to the mix, kind of like putting 
+                a little cushion under the line, helping it hug the dots better. This 'cushion' prevents the line from 
+                getting too wobbly, giving us more reliable predictions, especially when dealing with lots of features 
+                or variables. It's like having a steadier hand when drawing on a bumpy road – making our predictions 
+                smoother and more accurate.</p>
+        </div>
+        <div class="grid-item">
+            <img src="/static/images/lasso-intro.png" alt="lasso-regression">
+            <h3 class="heading">Lasso Regression</h3>
+            <p>Picture you're trying to find the best fit line through a scatterplot, but you know some of those dots 
+                might not be as important as others. Lasso regression is like a smart line-drawing tool that not only 
+                finds the best fit but also ignores less important dots. It does this by gently nudging some of the dots 
+                to zero, effectively removing them from the equation. This way, you get a simpler, more focused line that 
+                still captures the essence of the relationship between your variables. It's like tidying up your data to 
+                find the most important patterns without getting distracted by noise.</p>
+        </div>
+        <div class="grid-item">
+            <img src="/static/images/svm-intro.png" alt="svm-regression">
+            <h3 class="heading">Support Vector Regression</h3>
+            <p>Imagine you're a teacher trying to draw a line between two groups of students in the playground. 
+                The goal is to make sure that line is as far away from both groups as possible, giving a clear separation. 
+                Support Vector Regression works a bit like that but in math. It finds the best line to separate data points 
+                into two groups. But here's the twist: instead of just drawing a line, it uses special points (called support vectors)
+                 to create a boundary that maximizes the space between the groups. This clever technique helps us make predictions 
+                 in situations where simple lines just won't cut it, making it a handy tool in predicting things like house prices 
+                 or stock market trends.</p>
+        </div>
+        <div class="grid-item">
+            <img src="/static/images/knn-intro.png" alt="knn-regression">
+            <h3 class="heading">K Nearest Neighbor Regression</h3>
+            <p>Picture yourself in a neighborhood where you want to predict the price of a house based on its size. 
+                KNN (K-Nearest Neighbors) regression is like asking your neighbors for advice. You look at the sizes 
+                and prices of nearby houses (your 'neighbors') and average their prices to estimate the price of the 
+                house you're interested in. It's like saying, 'If houses around here are usually this price for that 
+                size, then this one might be too.' KNN regression is a friendly, intuitive way to make predictions based 
+                on what's close by.</p>
+        </div>
+        <div class="grid-item">
+            <img src="/static/images/decision-tree-intro.png" alt="decision-tree-regression">
+            <h3 class="heading">Decision Tree Regression</h3>
+            <p>Think of a decision tree as a game of "20 Questions." You start with a big question like, "Is the weather sunny?" 
+                If yes, you ask another question, maybe, "Is it hot?" If no, you ask another, like, "Is it windy?" Decision tree 
+                regression works similarly, but instead of guessing things, it asks questions about data to predict outcomes. 
+                It breaks down complex decisions into a series of simpler ones, helping us make predictions about things like house 
+                prices or stock market movements. It's like having a smart guide that navigates through possibilities step by step 
+                to reach the best guess.</p>
+        </div>
+        <div class="grid-item">
+            <img src="/static/images/random-forest-intro.png" alt="random-forest-regression">
+            <h3 class="heading">Random Forest Regression</h3>
+            <p>Picture a forest filled with different kinds of trees. Now, imagine each tree in this forest is like a 
+                small decision-maker. Individually, they might not be super accurate, but when you gather all their opinions 
+                together, you get a pretty good answer. That's what a Random Forest Regression model does with data. 
+                It combines the predictions of many 'decision trees' to make a more accurate guess about something, 
+                like predicting house prices based on factors like location, size, and number of rooms.</p>
+        </div>
+        <div class="grid-item">
+            <img src="/static/images/gradient-boost-intro.png" alt="gradient-boost-regression">
+            <h3 class="heading">Gradient Boost Regression</h3>
+            <p>Picture a team of players working together to win a game. Gradient Boosting Regression is like assembling 
+                a team of specialized players, each getting better and better at the game. This model learns from its mistakes, 
+                adjusting itself with each round to improve its performance. By combining the strengths of individual 
+                'players'—in this case, weak prediction models—into a strong team, it's able to predict outcomes with 
+                remarkable accuracy. Just like a winning team, Gradient Boosting Regression excels in predicting everything 
+                from housing prices to customer preferences.</p>
+        </div>
+        <div class="grid-item">
+            <img src="/static/images/ada-boost-intro.png" alt="ada-boost-regression">
+            <h3 class="heading">Ada Boost Regression</h3>
+            <p>Picture a group of friends trying to solve a problem together. Each friend has their strengths and weaknesses. 
+                AdaBoost Regression is like having each friend specialize in a specific aspect of the problem. Then, they all 
+                work together, learning from each other's successes and failures, to come up with the best solution. This 
+                technique helps us make more accurate predictions by combining the strengths of multiple 'friends,' or weak learners, 
+                into one strong predictor.</p>
+        </div>
+        <div class="grid-item">
+            <img src="/static/images/xg-boost-intro.png" alt="xg-boost-regression">
+            <h3 class="heading">XGBoost Regression</h3>
+            <p>Meet XGBoost, the superhero of prediction models! Imagine you're in a talent show trying to guess the next 
+                number in a sequence. XGBoost is like having a superpower that helps you make the most accurate guesses. 
+                It's a smart algorithm that learns from its mistakes, continuously improving its predictions with each round. 
+                Whether you're forecasting sales or predicting customer behavior, XGBoost is your trusty sidekick, always 
+                striving to make your predictions sharper and more reliable.</p>
+        </div>
+    </div>
+
+
+    <h1 class="heading">Best Model</h1>
+    <div class="grid-container3">
+        <div class="grid-item3">
+            <img src="/static/images/xg-boost-intro.png" alt="xg-boost">
+            <div class="info">
+                <h3 class="heading">XGBoost Regression</h3>
+                <p><b>Training Accuracy: 97.64%</b></p>
+                <p><b>Test Accuracy: 97.31%</b></p>
+                <p><b>Root Mean Squared Error: 665690.65</b></p>
+            </div>
+        </div>
+    </div>
+
+    <h1 class="heading">Accuracy</h1>
+    <div class="grid-container3">
+        <div class="grid-item3">
+            <img src="/static/images/regression-accuracy.png" alt="accuracy">
+            <div class="info">
+                <h3 class="heading">XGBoost Regression</h3>
+                <p><b>Training Accuracy: 97.64%</b></p>
+                <p><b>Test Accuracy: 97.31%</b></p>
+                <p><b>Root Mean Squared Error: 665690.65</b></p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section about">
+                    <h2>About Us</h2>
+                    <p>We believe in the potential of machine learning to revolutionize the way we work, live, and 
+                        interact with the world. Whether it's developing predictive models, optimizing algorithms, or 
+                        building intelligent systems, we are driven by a shared vision of leveraging technology for positive change.</p>
+                    <!-- Add any other relevant information about your website or organization -->
+                </div>
+                <div class="footer-section links">
+                    <h2></h2>
+                    <ul>
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                        <!-- Add more links as needed -->
+                    </ul>
+                </div>
+                <div class="footer-section contact">
+                    <h2>Contact us</h2>
+                    <p>Email: example@example.com</p>
+                    <p>Phone: +1234567890</p>
+                    <!-- Add any other contact information -->
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 Your Company. All rights reserved.
+        </div>
+    </footer>
+    
+
+</body>
+</html>

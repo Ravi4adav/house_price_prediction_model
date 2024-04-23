@@ -3,9 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='./css/index.css')}}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Platypi:ital,wght@0,300..800;1,300..800&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+
     <title>Welcome Page</title>
 </head>
 <body>
-    <h1>WELCOME TO HOUSE PRICE PREDICTION MODEL</h1>
+    <nav>
+        <div class="nav-bar">
+          <h1>HOUSE PRICE PREDICTION MODEL</h1>
+          <a href="/">Home</a>
+          <a href="/data_insight">Data Insights</a>
+          <a href="/training_insight">Training Insights</a>
+          <a href="/predictdata">Predictor</a>
+        </div>
+    </nav>
+
+    <div class="grid-container">
+        <div class="grid-item"></div>
+        <div class="grid-item intro">
+            <img src="{{url_for('static', filename='./images/welcome-page.jpg')}}" alt="">
+            <h1 class="intro-heading">WELCOME TO HOUSE PRICE PREDICTION MODEL</h1>
+        </div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item">
+            <h2 class="content-heading">Introduction</h2>
+            <p>House prices increase every year, so there is a need for a system to predict house prices in the future. 
+                House price prediction can help the developer determine the selling price of a house and can help the customer 
+                to arrange the right time to purchase a house. There are three factors that influence the price of a house which 
+                include physical conditions, concept and location.</p>
+        </div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item">
+            <section>
+                <h3 class="content-heading">How It Works</h3>
+                <p>Simply input your property details, and our advanced prediction model will analyze market data to provide 
+                    you with an accurate estimate of your home's market value.</p>
+            </section>
+            <section>
+                <h3 class="content-heading">Key Features</h3>
+                <ul>
+                    <li>Instant and accurate predictions</li>
+                    <li>User-friendly interface</li>
+                    <li>Customizable inputs for tailored results</li>
+                </ul>
+            </section>
+            <section>
+                <h3 class="content-heading">Benefits</h3>
+                <p>Make informed decisions about buying, selling, or investing in property.</p>
+                <p>Save time and effort with instant access to reliable price estimates.</p>
+            </section>
+            <section>
+                <h3 class="content-heading-button">Try It Now!</h3>
+                <button><a href="/predictdata" class="cta-button">Let's Predict</a></button>
+            </section>
+        </div>
+        <div class="grid-item"></div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section about">
+                    <h2>About Us</h2>
+                    <p>We believe in the potential of machine learning to revolutionize the way we work, live, and 
+                        interact with the world. Whether it's developing predictive models, optimizing algorithms, or 
+                        building intelligent systems, we are driven by a shared vision of leveraging technology for positive change.</p>
+                    <!-- Add any other relevant information about your website or organization -->
+                </div>
+                <div class="footer-section links">
+                    <h2></h2>
+                    <ul>
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                        <!-- Add more links as needed -->
+                    </ul>
+                </div>
+                <div class="footer-section contact">
+                    <h2>Contact us</h2>
+                    <p>Email: example@example.com</p>
+                    <p>Phone: +1234567890</p>
+                    <!-- Add any other contact information -->
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 Your Company. All rights reserved.
+        </div>
+    </footer>
+
+    
 </body>
 </html>
